@@ -1,0 +1,623 @@
+<form action="{% url 'polls:addquestion' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h1>Adding new question</h1>
+        </legend>
+        {% if error_message %}
+            <p>
+                <strong>{{ error_message }}</strong>
+            </p>
+        {% endif %}
+        <label>question text:</label><br />
+        <input type="text" name="question_text" id="text" /><br /><br />
+        <label>choices(one per line):</label><br />
+        <textarea name="choices" id="choices" rows="5" cols="40"></textarea>
+    </fieldset>
+    <input type="submit" value="addquestion">
+</form>
+
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  {%load static%}
+  <head>
+    <title>homiehomie</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7COswald:400,700">
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/style.css' %}">
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="{% static 'images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header header-relative">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-absolute">
+          <nav class="rd-navbar rd-navbar-transparent" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="10px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand">
+                    <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="{% static 'images/logo-default-252x88.png' %}" alt="" width="126" height="44"/><img class="brand-logo-light" src="{% static 'images/logo-inverse-252x88.png' %}" alt="" width="126" height="44"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#about">About</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#contacts">Contacts</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="rd-navbar-aside-right rd-navbar-collapse">
+                  <ol class="list-inline rd-list-info">
+                    <li><a href="mailto:#">info@demolink.org</a></li>
+                    <li><a href="tel:#">1-800-901-234</a></li>
+                  </oˇl>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Intro section-->
+      <section class="section intro-section section-md novi-background bg-cover context-dark" id="home" style="background-image: url({% static 'images/bg-image.jpg' %})">
+        <div class="container container-custom-width text-center text-md-left">
+          <div class="row row-30">
+            <div class="col-xl-5 d-none d-xl-block"><img src="{% static 'images/home-intro-1-658x544.png' %}" alt="" width="658" height="544"/>
+            </div>
+            
+            <div class="col-md-6 col-xl-4">
+              <div class="inset-wrap">
+
+                <form action="{% url 'polls:addquestion' %}" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>
+                            <h1>Adding new question</h1>
+                        </legend>
+                        {% if error_message %}
+                            <p>
+                                <strong>{{ error_message }}</strong>
+                            </p>
+                        {% endif %}
+                        <label>question text:</label><br />
+                        <input type="text" name="question_text" id="text" /><br /><br />
+                        <label>choices(one per line):</label><br />
+                        <textarea name="choices" id="choices" rows="5" cols="40"></textarea>
+                    </fieldset>
+                    <input type="submit" value="addquestion">
+                </form>
+
+                
+              </div>
+            </div>
+          </div>
+          <div class="bg-element novi-background"></div>
+        </div>
+      </section>
+      <!-- Includes-->
+      <section class="section section-md bg-default novi-background bg-cover">
+        <div class="container">
+          <div class="row row-50 row-fix">
+            <div class="col-md-8">
+              <div class="row row-20 justify-content-center align-items-center">
+                <div class="col-5 wow fadeInUp">
+                  <div class="box-numbered">
+                    <div class="box-numbered-inner"><img src="{% static 'images/home-4-188x209.png' %}" alt="" width="188" height="209"/><span class="number">01</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5 wow fadeInUp" data-wow-delay="0.2s">
+                  <div class="box-numbered">
+                    <div class="box-numbered-inner"><img src="{% static 'images/home-5-230x201.png' %}" alt="" width="230" height="201"/><span class="number">03</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5 wow fadeInUp" data-wow-delay="0.2s">
+                  <div class="box-numbered">
+                    <div class="box-numbered-inner"><img src="{% static 'images/home-6-152x177.png' %}" alt="" width="152" height="177"/><span class="number">02</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 wow fadeInRight">
+              <h3>What’s included</h3>
+              <p>Our company provides everything necessary with photo zones. All instructions and equipment are included for your convenience.</p>
+              <ol class="list-ordered list-ordered-hover">
+                <li><a href="#">Frame and banner</a></li>
+                <li><a href="#">Lighting</a></li>
+                <li><a href="#">Manual</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Photo zones-->
+      <section class="section section-md novi-background bg-cover context-dark" id="about" style="background-image: url({% static 'images/bg-image.jpg' %})">
+        <div class="container">
+          <div class="row row-30 justify-content-center justify-content-lg-between">
+            <div class="col-md-10 col-lg-5 wow fadeInLeft">
+              <h3>Different photo zones for various purposes</h3>
+              <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
+                <!-- Nav tabs-->
+                <ul class="nav nav-tabs">
+                  <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">Standard</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">Single</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">Compact</a></li>
+                </ul>
+                <!-- Tab panes-->
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="tabs-1-1">
+                    <p>Standard photo zone will provide your event with a spectacular and professionally crafted background.</p>
+                    <p>Any event, be it a personal or corporate one, can benefit from renting our photo zones. Standard variant is the most popular as it perfectly fits business conferences, photo sessions, and a vast range of other events.</p>
+                  </div>
+                  <div class="tab-pane fade" id="tabs-1-2">
+                    <p>Single photo zone rental is a great solution for small corporate events and presentations.</p>
+                    <p>This type of photo zone can provide great background with stunning design, reliable structure, and proper lighting. Our products are great for capturing the best moments of birthdays and corporate meetings and other events.</p>
+                  </div>
+                  <div class="tab-pane fade" id="tabs-1-3">
+                    <p>If you don’t have much place for big photo zones at your event, then our compact variant is what you need!</p>
+                    <p>It provides everything necessary for any photo zone or press-wall but in a much more compact setting. Your visitors will appreciate such solution and it won’t cost you a lot to rent and install it at your venue.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="box-bordered">
+                <div class="unit unit-spacing-sm">
+                  <div class="unit-left">
+                    <div class="icon novi-icon icon-md icon-secondary mdi mdi-download"></div>
+                  </div>
+                  <div class="unit-body">
+                    <div class="exeption"><a href="#">Get the full catalog</a></div>
+                  </div>
+                </div>
+                <div class="unit unit-spacing-sm">
+                  <div class="unit-left">
+                    <div class="icon novi-icon icon-md icon-secondary mdi mdi-crop"></div>
+                  </div>
+                  <div class="unit-body">
+                    <div class="exeption"><a href="#">Order an individual size</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 col-lg-6 wow fadeInRight">
+              <!-- Owl Carousel-->
+              <div class="owl-carousel owl-custom-nav" data-items="1" data-dots="false" data-nav="true" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false" data-autoplay="true">
+                <div class="box-shadow">
+                  <div class="tag">2x2.5 ft</div><img class="block-shadow" src="{% static 'images/home-1-547x342.jpg' %}" alt="" width="547" height="342"/>
+                </div>
+                <div class="box-shadow">
+                  <div class="tag">2x3 ft</div><img class="block-shadow" src="{% static 'images/home-2-547x342.jpg' %}" alt="" width="547" height="342"/>
+                </div>
+                <div class="box-shadow">
+                  <div class="tag">2x5 ft</div><img class="block-shadow" src="{% static 'images/home-3-547x342.jpg' %}" alt="" width="547" height="342"/>
+                </div>
+              </div>
+              <div class="table-custom-responsive">
+                <table class="table-custom">
+                  <thead>
+                    <tr>
+                      <th>Type</th>
+                      <th>Sale price</th>
+                      <th>Rental</th>
+                      <th>Print</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Compact</td>
+                      <td>$300</td>
+                      <td>$100</td>
+                      <td>$80</td>
+                      <td>
+                        <button class="button button-sm button-primary-outline" type="button" data-toggle="modal" data-target="#myModal">Select</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Single</td>
+                      <td>$400</td>
+                      <td>$200</td>
+                      <td>$90</td>
+                      <td>
+                        <button class="button button-sm button-primary-outline" type="button" data-toggle="modal" data-target="#myModal">Select</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Standard</td>
+                      <td>$500</td>
+                      <td>$300</td>
+                      <td>$100</td>
+                      <td>
+                        <button class="button button-sm button-primary-outline" type="button" data-toggle="modal" data-target="#myModal">Select</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Request-->
+      <section class="section section-md bg-default novi-background bg-cover">
+        <div class="container">
+          <div class="row row-40 justify-content-between">
+            <div class="col-md-6 wow fadeInLeft">
+              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="row row-18 row-fix">
+                  <div class="col-xl-6">
+                    <div class="form-wrap">
+                      <label class="form-label" for="quest-name">Name</label>
+                      <input class="form-input" id="quest-name" type="text" name="name" data-constraints="@Required">
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="form-wrap">
+                      <label class="form-label" for="quest-phone">Phone</label>
+                      <input class="form-input" id="quest-phone" type="text" name="phone" data-constraints="@Required @PhoneNumber">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-wrap">
+                      <label class="form-label" for="quest-message">Comment</label>
+                      <textarea class="form-input" id="quest-message" name="message" data-constraints="@Required"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-button group-sm text-center text-lg-left">
+                  <button class="button button-primary-outline" type="submit">Send request</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-4 wow fadeInRight">
+              <h3>We will answer all <span class="text-light">your</span> questions</h3>
+              <ul class="list-marked">
+                <li>We are always ready to design even the most complex photo zones for your event.</li>
+                <li>If you need to rent a specific photo zone, feel free to contact our managers.</li>
+                <li>Our photo zones are available throughout the US in a wide variety of colors and prices.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Why us-->
+      <section class="section section-md bg-gray-100 novi-background bg-cover">
+        <div class="container">
+          <div class="row row-50 row-fix justify-content-center">
+            <div class="col-lg-6 wow fadeInLeft">
+              <h3>Why people Choose our <span class="text-light">photo zones</span></h3>
+              <p>Our photo zones are valued for their quality, colorful design, quick installation, and affordable prices.</p>
+              <p>With our products, you can create amazing backgrounds developed by industry professionals. Our press-walls, photo zones, and stands work just the way they should.</p>
+              <div class="divider divider-1"></div>
+              <div class="row row-30 row-md-40">
+                <div class="col-md-6">
+                  <div class="box-icon">
+                    <div class="unit">
+                      <div class="unit-left">
+                        <div class="icon mdi mdi-cube linearicons-cube"></div>
+                      </div>
+                      <div class="unit-body">
+                        <div class="title">Compact</div>
+                      </div>
+                    </div>
+                    <p>All our products are compact and highly portable.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-icon">
+                    <div class="unit">
+                      <div class="unit-left">
+                        <div class="icon mdi mdi-cube linearicons-link2"></div>
+                      </div>
+                      <div class="unit-body">
+                        <div class="title">Durable</div>
+                      </div>
+                    </div>
+                    <p>Our solutions are made to be used numerous times.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-icon">
+                    <div class="unit">
+                      <div class="unit-left">
+                        <div class="icon mdi mdi-cube linearicons-screwdriver"></div>
+                      </div>
+                      <div class="unit-body">
+                        <div class="title">Easy to Install</div>
+                      </div>
+                    </div>
+                    <p>You can easily  install our photo zones in a few minutes.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-icon">
+                    <div class="unit">
+                      <div class="unit-left">
+                        <div class="icon mdi mdi-cube linearicons-heart"></div>
+                      </div>
+                      <div class="unit-body">
+                        <div class="title">Bright</div>
+                      </div>
+                    </div>
+                    <p>Our products come in a variety of bright colors and designs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 col-lg-6 wow fadeInRight">
+              <div class="video-block"><img src="{% static 'images/home-7-660x731.png' %}" alt="" width="660" height="731"/><a class="icon mdi mdi-play" href="#" data-lightgallery="item"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Our products-->
+      <section class="section section-md novi-background bg-cover context-dark" id="portfolio" style="background-image: url({% static 'images/bg-image.jpg)' %}">
+        <div class="container text-center">
+          <h3>Our products</h3>
+          <!-- Owl Carousel-->
+          <div class="owl-carousel owl-carousel-custom" data-items="1" data-md-items="3" data-dots="true" data-nav="false" data-stage-padding="0" data-loop="true" data-margin="0" data-mouse-drag="false" data-center="true" data-smartspeed="500" data-autoplay="true">
+            <div class="item">
+              <div class="thumbnail-simple">
+                <div class="thumbnail-inner"><img src="{% static 'images/products-1-276x301.png' %}" alt="" width="276" height="301"/><a class="button button-primary" href="#">Select</a>
+                </div>
+                <p class="exeption">Green Photo Zone</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail-simple">
+                <div class="thumbnail-inner"><img src="{% static 'images/products-2-276x301.png' %}" alt="" width="276" height="301"/><a class="button button-primary" href="#">Select</a>
+                </div>
+                <p class="exeption">New Year Photo Zone</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail-simple">
+                <div class="thumbnail-inner"><img src="{% static 'images/products-3-276x301.png' %}" alt="" width="276" height="301"/><a class="button button-primary" href="#">Select</a>
+                </div>
+                <p class="exeption">Romantic Photo Zone</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail-simple">
+                <div class="thumbnail-inner"><img src="{% static 'images/products-4-276x301.png' %}" alt="" width="276" height="301"/><a class="button button-primary" href="#">Select</a>
+                </div>
+                <p class="exeption">Celebration Photo Zone</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail-simple">
+                <div class="thumbnail-inner"><img src="{% static 'images/products-5-276x301.png' %}" alt="" width="276" height="301"/><a class="button button-primary" href="#">Select</a>
+                </div>
+                <p class="exeption">Bright Photo Zone</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Order-->
+      <section class="section section-md bg-gray-100 novi-background bg-cover text-center">
+        <div class="container">
+          <h3>How to order a photo zone</h3>
+          <ul class="list-custom-wrap">
+            <li class="wow fadeIn">
+              <div class="list-inner">
+                <div class="index-counter"></div>
+                <div class="list-content">Choose shape and size of the photo zone</div>
+              </div>
+            </li>
+            <li class="wow fadeIn" data-wow-delay="0.2s">
+              <div class="list-inner">
+                <div class="index-counter"></div>
+                <div class="list-content">Approve the design</div>
+              </div>
+            </li>
+            <li class="wow fadeIn" data-wow-delay="0.4s">
+              <div class="list-inner">
+                <div class="index-counter"></div>
+                <div class="list-content">Make a prepayment</div>
+              </div>
+            </li>
+            <li class="wow fadeIn" data-wow-delay="0.6s">
+              <div class="list-inner">
+                <div class="index-counter"></div>
+                <div class="list-content">Get you photo zone within 3 days</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Contacts-->
+      <section class="section section-md bg-default novi-background bg-cover" id="contacts">
+        <div class="container">
+          <div class="row row-50 justify-content-between">
+            <div class="col-md-7 col-lg-6 wow fadeInUp">
+              <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="row row-18 row-fix">
+                  <div class="col-xl-12">
+                    <div class="form-wrap">
+                      <label class="form-label" for="contact-name">Name</label>
+                      <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <!-- Select 2-->
+                      <select class="form-input select" data-placeholder="Photo zone type" data-constraints="@Required" name="photo-zone-type">
+                        <option label="placeholder"></option>
+                        <option value="2">Compact</option>
+                        <option value="3">Single</option>
+                        <option value="4">Standard</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <!-- Select 2-->
+                      <select class="form-input select" data-placeholder="For rent" data-constraints="@Required" name="rent">
+                        <option label="placeholder"></option>
+                        <option value="2">For rent</option>
+                        <option value="3">For purchase</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <!-- Select 2-->
+                      <select class="form-input select" data-placeholder="With a print" data-constraints="@Required" name="print">
+                        <option label="placeholder"></option>
+                        <option value="2">With a print</option>
+                        <option value="3">Without a print</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-wrap">
+                      <label class="form-label" for="contact-phone">Phone</label>
+                      <input class="form-input" id="contact-phone" type="text" name="phone" data-constraints="@Required @PhoneNumber">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-button group-sm text-center text-lg-left">
+                  <button class="button button-primary-outline" type="submit">Send request</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-5 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box-contacts">
+                <h3>Contacts</h3>
+                <p>2200 Clarendon Blvd., Suite 1400A Arlington, VA 22201, USA</p>
+                <div class="unit unit-middle">
+                  <div class="unit-left">
+                    <div class="icon novi-icon icon-sm icon-primary mdi mdi-email"></div>
+                  </div>
+                  <div class="unit-body">
+                    <ul class="list-info">
+                      <li><a class="big text-hover" href="mailto:#">info@demolink.org</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="unit unit-middle">
+                  <div class="unit-left">
+                    <div class="icon novi-icon icon-sm icon-primary mdi mdi-phone"></div>
+                  </div>
+                  <div class="unit-body">
+                    <ul class="list-info">
+                      <li><a class="big text-hover" href="tel:#">1-800-901-234</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <ul class="list-inline list-inline-md">
+                  <li><a class="icon novi-icon icon-sm icon-border fa fa-facebook" href="#"></a></li>
+                  <li><a class="icon novi-icon icon-sm icon-border fa fa-youtube-play" href="#"></a></li>
+                  <li><a class="icon novi-icon icon-sm icon-border fa fa-instagram" href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <footer class="section footer-classic context-dark" style="background-image: url({% static 'images/bg-image.jpg)' %}">
+        <div class="container">
+          <p class="rights"><span>&copy;&nbsp; </span><span class="copyright-year"></span><span>&nbsp;</span><span>Outer Side</span><span>.&nbsp;</span><span>All Rights Reserved</span><span>.</span><span> <a target="_blank" href="https://www.mobanwang.com/" title="网站模板">网站模板</a></span></p>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Modal-->
+    <div class="modal modal-custom fade" id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Complete your order</h3>
+            <div class="modal-subtitle">2x2.5 ft</div>
+            <button class="close mdi mdi-close" type="button" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+              <div class="row row-18 row-fix">
+                <div class="col-xl-12">
+                  <div class="form-wrap">
+                    <label class="form-label" for="modal-name">Name</label>
+                    <input class="form-input" id="modal-name" type="text" name="name" data-constraints="@Required">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <!-- Select 2-->
+                    <select class="form-input select" data-placeholder="Photo zone type" data-constraints="@Required" name="modal-photo-zone-type">
+                      <option label="placeholder"></option>
+                      <option value="2">Compact</option>
+                      <option value="3">Single</option>
+                      <option value="4">Standard</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <!-- Select 2-->
+                    <select class="form-input select" data-placeholder="For rent" data-constraints="@Required" name="modal-rent">
+                      <option label="placeholder"></option>
+                      <option value="2">For rent</option>
+                      <option value="3">For purchase</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <!-- Select 2-->
+                    <select class="form-input select" data-placeholder="With a print" data-constraints="@Required" name="modal-print">
+                      <option label="placeholder"></option>
+                      <option value="2">With a print</option>
+                      <option value="3">Without a print</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <label class="form-label" for="modal-contact-phone">Phone</label>
+                    <input class="form-input" id="modal-contact-phone" type="text" name="phone" data-constraints="@Required @PhoneNumber">
+                  </div>
+                </div>
+              </div>
+              <div class="form-button group-md text-center text-lg-left">
+                <button class="button button-primary" type="submit">Send request</button><span class="price">$300</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- coded by Himic-->
+  </body>
+</html>
